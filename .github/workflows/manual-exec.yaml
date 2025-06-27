@@ -22,15 +22,9 @@ jobs:
       - name: Instalando as dependencias
         run: yaml
 
-      - name: Instalando playright
-        run: yarn playwright install
+      - name: Instalando Mocha
+        run: yarn add --dev mocha
 
-      - name: Executando os Testes E2E
-        run: yarn run e2e
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }}
-        with: 
-          name: report
-          path: ./playright-report
+      - name: Executando Testes
+        run: yarn test
   
